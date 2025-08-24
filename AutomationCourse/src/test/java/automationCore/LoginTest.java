@@ -4,17 +4,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import pages.LoginPage;
+
 public class LoginTest extends TestNg_Base {
 	
 	@Test
 	public void verifyUserLoginWithValidCredential()
 	{
-		WebElement username=driver.findElement(By.id("user-name"));
-		username.sendKeys("standard_user");
-		WebElement password=driver.findElement(By.id("password"));
-		password.sendKeys("secret_sauce");
-		WebElement loginButton=driver.findElement(By.id("login-button"));
-		loginButton.click();
+		LoginPage loginpage=new LoginPage(driver);
+		loginpage.enterUsernameonUserField();
+		loginpage.enterPasswordinPasswordField();
+		loginpage.clickLoginButton();
+		
+		//WebElement username=driver.findElement(By.id("user-name"));
+		//username.sendKeys("standard_user");
+		//WebElement password=driver.findElement(By.id("password"));
+		//password.sendKeys("secret_sauce");
+		//WebElement loginButton=driver.findElement(By.id("login-button"));
+		//loginButton.click();
 	}
 	@Test
 	public void verifyIncorrectUsenamerwithValidPassword()
