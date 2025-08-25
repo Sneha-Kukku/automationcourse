@@ -12,20 +12,20 @@ public class ExcelUtility {
 	static FileInputStream f; //class in java to get the details from the file
 	static XSSFWorkbook wb; //class to get details from the workbook
 	static XSSFSheet sh; //class to get details from excel sheet
-	public static String getStringData(int a,int b) throws IOException 
+	public static String getStringData(int a,int b,String sheet) throws IOException 
 	{
-		f=new FileInputStream("C:\\Users\\user\\Downloads\\DetailsJava.xlsx");
+		f=new FileInputStream("C:\\Users\\user\\git\\automationcourse\\AutomationCourse\\src\\test\\resources\\Excelsneha.xlsx");
 		wb= new XSSFWorkbook(f);
-		sh=wb.getSheet("sheet1");
+		sh=wb.getSheet(sheet);
 		XSSFRow r =sh.getRow(a);
 		XSSFCell c = r.getCell(b);
 		return c.getStringCellValue();
 	}
-	public static String getIntegerData(int a,int b) throws IOException
+	public static String getIntegerData(int a,int b,String sheet) throws IOException
 	{
-		f=new FileInputStream("C:\\Users\\user\\Downloads\\DetailsJava.xlsx");
+		f=new FileInputStream("\"C:\\Users\\user\\git\\automationcourse\\AutomationCourse\\src\\test\\resources\\TestData.xlsx\"");
 		wb= new XSSFWorkbook(f);
-		sh=wb.getSheet("sheet1");
+		sh=wb.getSheet(sheet);
 		XSSFRow r =sh.getRow(a);
 		XSSFCell c = r.getCell(b);
 		int s=(int)c.getNumericCellValue();

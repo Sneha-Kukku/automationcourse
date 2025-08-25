@@ -12,19 +12,20 @@ public class LoginPage {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	@FindBy(id="user-name") private WebElement username;
-	@FindBy(id="password") private WebElement password;
+	@FindBy(id="user-name") private WebElement usernamefield;
+	@FindBy(id="password") private WebElement passwordfield;
 	@FindBy(id="login-button") private WebElement loginButton;
 	
-	public void enterUsernameonUserField()
+	
+	public void enterUsernameonUserField(String username)
 	{
-		username.sendKeys("standard_user");
+		usernamefield.sendKeys(username);
 		
 	}
-	public void enterPasswordinPasswordField()
+	public void enterPasswordinPasswordField(String password)
 	{
-		password.sendKeys("secret_sauce");
 		
+		passwordfield.sendKeys(password);
 	}
 	public void clickLoginButton()
 	{
